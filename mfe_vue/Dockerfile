@@ -1,4 +1,4 @@
-FROM node:16.14-slim
+FROM node:20.8.0
 WORKDIR /usr/src/app
 COPY ./front ./front
 RUN cd front && npm install && chown node -R node_modules

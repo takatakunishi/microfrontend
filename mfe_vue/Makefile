@@ -6,5 +6,8 @@ up:
 down:
 	docker-compose down
 
+docker-build:
+	docker-compose build --no-cache
+
 preview:
 	cd front && npm run build && npm run preview

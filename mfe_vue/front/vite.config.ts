@@ -11,16 +11,4 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
   },
-  build: {
-    manifest: true, // マイクロフロントエンドのコンテナアプリが、このフロントエンドのコンテンツを読み込むために必要
-    rollupOptions: {
-      output: {
-        entryFileNames: `bundle.js`,
-      },
-    },
-    // lib: {
-    //   formats: ["es"],
-    //   entry: `${__dirname}/src/main.ts`,
-    // }
-  }
 })

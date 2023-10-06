@@ -9,7 +9,7 @@ services:
     volumes:
       # ローカルのデータにコンテナのデータをマウントする。
       - .:/usr/src/app
-      - /usr/src/app/front/node_modules
+      - mfe_container-node_modules:/usr/src/app/front/node_modules
     working_dir: /usr/src/app # デフォルトの作業ディレクトリを指定
     command: sh -c 'cd front && npm run dev'
     environment:
@@ -18,7 +18,7 @@ services:
     stdin_open: true
     ports:
       - "3100:3000" # 左がローカル、右がDocker内のポート
-      - "3151:3001" # 左がローカル、右がDocker内のポート
+      - "3150:3001" # 左がローカル、右がDocker内のポート
     networks:
       - internal
       - external
@@ -30,3 +30,6 @@ networks:
   external:
     external: true
     name: mfe_external
+
+volumes:
+  mfe_container-node_modules:

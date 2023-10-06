@@ -4,12 +4,12 @@
 
 ## 使用方法
 
-- `make up`: コンテナの立ち上げ(http://localhost:3102/)
+- `make up`: コンテナの立ち上げ(<http://localhost:3102/>)
 - `make down`: コンテナを終了する
 
 mfe_nuxtコンテナ内限定
 
-- `make preview`: buildとpreviewを実行(http://localhost:3152/)
+- `make preview`: buildとpreviewを実行(<http://localhost:3152/>)
 
 ## その他
 

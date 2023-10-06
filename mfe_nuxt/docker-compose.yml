@@ -9,7 +9,7 @@ services:
     volumes:
       # ローカルのデータにコンテナのデータをマウントする。
       - .:/usr/src/app
-      - /usr/src/app/front/node_modules
+      - mfe_nuxt-node_modules:/usr/src/app/front/node_modules
     working_dir: /usr/src/app # デフォルトの作業ディレクトリを指定
     command: sh -c 'cd front && npm run dev'
     environment:
@@ -30,3 +30,6 @@ networks:
   external:
     external: true
     name: mfe_external
+
+volumes:
+  mfe_nuxt-node_modules:

@@ -1,11 +1,11 @@
 {
-  "name": "front",
+  "name": "mfe_vue_front",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite serve --port 3011",
-    "build": "npx vue-tsc && vite build",
+    "dev": "vite serve --port 3000",
+    "build": "vue-tsc && vite build",
     "preview": "vite preview --port 3001"
   },
   "dependencies": {

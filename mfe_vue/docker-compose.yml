@@ -9,7 +9,7 @@ services:
     volumes:
       # ローカルのデータにコンテナのデータをマウントする。
       - .:/usr/src/app
-      - /usr/src/app/front/node_modules
+      - mfe_vue-node_modules:/usr/src/app/front/node_modules
     working_dir: /usr/src/app # デフォルトの作業ディレクトリを指定
     command: sh -c 'cd front && npm run dev'
     environment:
@@ -17,9 +17,16 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - "3011:3011" # 左がローカル、右がDocker内のポート
-      - "3031:3001"
+      - "3103:3000" # 左がローカル、右がDocker内のポート
+      - "3153:3001"
 
 networks:
-  vue_repo_default:
+  internal:
+    driver: bridge
+    internal: true
+  external:
     external: true
+    name: mfe_external
+
+volumes:
+  mfe_vue-node_modules:

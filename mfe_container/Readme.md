@@ -4,12 +4,12 @@
 
 ## 使用方法
 
-- `make up`: コンテナの立ち上げ(http://localhost:3101/)
+- `make up`: コンテナの立ち上げ(<http://localhost:3100/>)
 - `make down`: コンテナを終了する
 
 mfe_containerコンテナ内限定
 
-- `make preview`: buildとpreviewを実行(http://localhost:3151/)
+- `make preview`: buildとpreviewを実行(<http://localhost:3150/>)
 
 ## その他
 
