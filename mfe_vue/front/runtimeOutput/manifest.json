@@ -1,0 +1,14 @@
+{
+  "runtime.html": {
+    "assets": [
+      "vue-runtime/assets/images/vue.svg"
+    ],
+    "file": "vue-runtime/bundle-runtime.js",
+    "isEntry": true,
+    "src": "runtime.html"
+  },
+  "src/assets/vue.svg": {
+    "file": "vue-runtime/assets/images/vue.svg",
+    "src": "src/assets/vue.svg"
+  }
+}

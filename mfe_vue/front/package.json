@@ -6,12 +6,18 @@
   "scripts": {
     "dev": "vite serve --port 3000",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview --port 3001"
+    "preview": "vite preview --port 3001",
+    "serve": "npm run webcomponent-serve & npm run runtime-serve",
+    "webcomponent-serve": "vue-tsc && vite build --watch -c vite.config.ts --mode development & vite preview --port 3001",
+    "runtime-serve": "vue-tsc && vite build --watch -c vite.config.runtime.ts --mode development  & vite preview --port 3002 --outDir runtimeOutput"
   },
   "dependencies": {
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@types/node": "^20.8.6",
     "@vitejs/plugin-vue": "^4.2.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",

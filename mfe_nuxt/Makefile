@@ -13,7 +13,13 @@ build:
 	cd front && npm run build
 
 preview:
-	cd front && npm run build && npm run preview
+	docker compose exec nuxt make preview-in-docker
+
+preview-in-docker:
+	cd front && npm run preview
+
+clear-port:
+	kill -9 $$(lsof -t -i:3001)
 
 serve:
 	cd front && npm run preview

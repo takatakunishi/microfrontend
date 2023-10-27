@@ -6,7 +6,8 @@
     "build": "nuxt build",
     "dev": "nuxt dev --port=3000",
     "generate": "nuxt generate",
-    "preview": "PORT=3001 HOST=0 nuxt preview",
+    "preview": "npm run build && PORT=3001 HOST=0 nuxt preview",
+    "preview-only": "PORT=3001 HOST=0 nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {

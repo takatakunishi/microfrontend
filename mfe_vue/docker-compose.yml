@@ -19,6 +19,10 @@ services:
     ports:
       - "3103:3000" # 左がローカル、右がDocker内のポート
       - "3153:3001"
+      - "3253:3002"
+    networks:
+      - internal
+      - external
 
 networks:
   internal:

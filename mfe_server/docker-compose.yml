@@ -1,0 +1,34 @@
+version: '3' # docker-composeのバージョン
+services:
+  server:
+    build:
+      # イメージを作るためのDockerfileがある場所
+      context: . # Dockerfileのある場所
+      dockerfile: Dockerfile
+    container_name: mfe_server
+    volumes:
+      # ローカルのデータにコンテナのデータをマウントする。
+      - ./server:/usr/src/app
+      - mfe_server-node_modules:/usr/src/app/node_modules
+    working_dir: /usr/src/app # デフォルトの作業ディレクトリを指定
+    command: sh -c 'npm run start'
+    environment:
+      - CHOKIDAR_USEPOLLING=true # docker環境の中でホットリロードを有効にします。
+    tty: true
+    stdin_open: true
+    ports:
+      - "9000:9000" # 左がローカル、右がDocker内のポート
+    networks:
+      - internal
+      - external
+
+networks:
+  internal:
+    driver: bridge
+    internal: true
+  external:
+    external: true
+    name: mfe_external
+
+volumes:
+  mfe_server-node_modules:

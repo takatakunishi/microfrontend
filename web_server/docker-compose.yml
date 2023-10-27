@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      # イメージを作るためのDockerfileがある場所
+      context: . # Dockerfileのある場所
+      dockerfile: Dockerfile
+    container_name: mfe_nginx
+    ports:
+      - 80:80
+    tty: true
+    stdin_open: true
+    working_dir: /usr/src/resources
+    volumes:
+      - ./resources:/usr/src/resources
+    networks:
+      - internal
+      - external
+
+networks:
+  internal:
+    driver: bridge
+    internal: true
+  external:
+    external: true
+    name: mfe_external

@@ -1,33 +1,34 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Button from './components/atoms/Butoton'
+import Routing from './router'
+import AppBody from './components/organisms/AppBody'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const navigate = useNavigate();
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <AppBody />
+      <div style={{ display: "flex", flexDirection: "column", border: "1px solid aqua" }}>
+        <Button label="マイクロフロントエンド - shadow dom Containerへ -" onClick={() => navigate('/')} />
+        <Button label="マイクロフロントエンド - shadow dom Reactへ -" onClick={() => navigate('/react-page')} />
+        <Button label="マイクロフロントエンド - shadow dom React /sampleへ -" onClick={() => navigate('/react-page/sample')} />
+        <Button label="マイクロフロントエンド - shadow dom Vueへ -" onClick={() => navigate('/vue-page')} />
+        <Button label="マイクロフロントエンド - shadow dom Nuxtへ -" onClick={() => navigate('/nuxt-page')} />
+        <Button label="マイクロフロントエンド - shadow dom Nuxt /homeへ -" onClick={() => navigate('/nuxt-page/home')} />
+        <Button label="マイクロフロントエンド - iframe Reactへ -" onClick={() => navigate('/iframe/react')} />
+        <Button label="マイクロフロントエンド - iframe React /sampleへ -" onClick={() => navigate('/iframe/react/sample')} />
+        <Button label="マイクロフロントエンド - iframe React /sample#hogeへ -" onClick={() => navigate('/iframe/react/sample#hoge')} />
+        <Button label="マイクロフロントエンド - iframe Reactへ 違うドメイン -" onClick={() => navigate('/iframe/react-3rd-domain')} />
+        <Button label="マイクロフロントエンド - iframe Vueへ -" onClick={() => navigate('/iframe/vue')} />
+        <Button label="マイクロフロントエンド - iframe Nuxtへ -" onClick={() => navigate('/iframe/nuxt')} />
+        <Button label="マイクロフロントエンド - runtime Reactへ -" onClick={() => navigate('/runtime/react')} />
+        <Button label="マイクロフロントエンド - runtime React /sampleへ -" onClick={() => navigate('/runtime/react/sample')} />
+        <Button label="マイクロフロントエンド - runtime Vueへ -" onClick={() => navigate('/runtime/vue')} />
+        <Button label="マイクロフロントエンド - runtime Nuxtへ -" onClick={() => navigate('/runtime/nuxt')} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Routing />
     </>
   )
 }

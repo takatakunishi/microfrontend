@@ -1,0 +1,36 @@
+version: '3' # docker-composeのバージョン
+services:
+  react:
+    build:
+      # イメージを作るためのDockerfileがある場所
+      context: . # Dockerfileのある場所
+      dockerfile: Dockerfile
+    container_name: mfe_react
+    volumes:
+      # ローカルのデータにコンテナのデータをマウントする。
+      - .:/usr/src/app
+      - mfe_react-node_modules:/usr/src/app/front/node_modules
+    working_dir: /usr/src/app # デフォルトの作業ディレクトリを指定
+    command: sh -c 'cd front && npm run dev'
+    environment:
+      - CHOKIDAR_USEPOLLING=true # docker環境の中でホットリロードを有効にします。
+    tty: true
+    stdin_open: true
+    ports:
+      - "3101:3000" # 左がローカル、右がDocker内のポート
+      - "3151:3001" # 左がローカル、右がDocker内のポート
+      - "3251:3002" # 左がローカル、右がDocker内のポート
+    networks:
+      - internal
+      - external
+
+networks:
+  internal:
+    driver: bridge
+    internal: true
+  external:
+    external: true
+    name: mfe_external
+
+volumes:
+  mfe_react-node_modules:

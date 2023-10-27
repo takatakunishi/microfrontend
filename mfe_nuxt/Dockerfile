@@ -4,4 +4,5 @@ COPY ./front ./front
 RUN cd front && npm install && chown node -R node_modules
 RUN apt update && apt install git -y
 RUN apt install make
+RUN apt install lsof
 EXPOSE 3102 3152

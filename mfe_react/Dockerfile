@@ -1,0 +1,8 @@
+FROM node:20.8.0
+WORKDIR /usr/src/app
+COPY ./front ./front
+RUN cd front && npm install && chown node -R node_modules
+RUN apt update && apt install git -y
+RUN apt install lsof
+EXPOSE 3101
+EXPOSE 3151

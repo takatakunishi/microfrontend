@@ -1,0 +1,14 @@
+{
+  "runtime.html": {
+    "assets": [
+      "react-runtime/assets/images/react.svg"
+    ],
+    "file": "react-runtime/bundle-runtime.js",
+    "isEntry": true,
+    "src": "runtime.html"
+  },
+  "src/assets/react.svg": {
+    "file": "react-runtime/assets/images/react.svg",
+    "src": "src/assets/react.svg"
+  }
+}

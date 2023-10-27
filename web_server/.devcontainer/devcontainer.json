@@ -1,0 +1,26 @@
+{
+  "name": "web_serber",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "nginx",
+  "workspaceFolder": "/usr/src/resources",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash",
+            "args": [
+              "-l"
+            ]
+          }
+        }
+      },
+      "extensions": [
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+        "eamodio.gitlens"
+      ]
+    }
+  }
+}

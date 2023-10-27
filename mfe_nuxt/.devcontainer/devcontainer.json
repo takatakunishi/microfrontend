@@ -21,7 +21,8 @@
         "donjayamanne.githistory",
         "eamodio.gitlens",
         "shardulm94.trailing-spaces",
-        "formulahendry.auto-rename-tag"
+        "formulahendry.auto-rename-tag",
+        "Vue.volar"
       ]
     }
   }

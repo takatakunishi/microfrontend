@@ -6,10 +6,8 @@
 
 - `make up`: コンテナの立ち上げ(<http://localhost:3100/>)
 - `make down`: コンテナを終了する
-
-mfe_containerコンテナ内限定
-
-- `make preview`: buildとpreviewを実行(<http://localhost:3150/>)
+- `make preview`: buildとpreviewを実行
+  - Web Component(Shadow DOM)用 <http://localhost:3150/>
 
 ## その他
 

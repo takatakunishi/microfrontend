@@ -1,0 +1,27 @@
+{
+	"editor.formatOnSave": true,
+	"[jsonc]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true,
+		"editor.quickSuggestions": {
+			"strings": true
+		},
+		"gitlens.codeLens.scopes": [
+			"document"
+		]
+	},
+	"[typescript]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true,
+		"editor.quickSuggestions": {
+			"strings": true
+		},
+	},
+	"[typescriptreact]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true,
+		"editor.quickSuggestions": {
+			"strings": true
+		},
+	},
+}

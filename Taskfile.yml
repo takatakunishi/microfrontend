@@ -1,0 +1,99 @@
+version: "3"
+
+tasks:
+  # マイクロフロントエンドの一斉操作
+  up:
+    cmds:
+      - task: up-docker-container
+      - task: preview
+  up-docker-container:
+    cmds:
+      - task -p container-up react-up vue-up nuxt-up nginx-up server-up
+  down:
+    cmds:
+      - task -p container-down react-down vue-down nuxt-down nginx-down
+
+  # Containerアプリケーション
+  container-up:
+    cmds:
+      - cd mfe_container && make up
+  container-down:
+    cmds:
+      - cd mfe_container && make down
+  # Reactアプリケーション
+  react-up:
+    cmds:
+      - cd mfe_react && make up
+  react-down:
+    cmds:
+      - cd mfe_react && make down
+  # Vueアプリケーション
+  vue-up:
+    cmds:
+      - cd mfe_vue && make up
+  vue-down:
+    cmds:
+      - cd mfe_vue && make down
+  # Nuxtアプリケーション
+  nuxt-up:
+    cmds:
+      - cd mfe_nuxt && make up
+  nuxt-down:
+    cmds:
+      - cd mfe_nuxt && make down
+  # Server
+  server-up:
+    cmds:
+      - cd mfe_server && make up
+  server-down:
+    cmds:
+      - cd mfe_server && make down
+  # Nginx
+  nginx-start:
+    cmds:
+      - cd web_server && make up
+  nginx-up:
+    deps:
+      - nginx-start
+    cmds:
+      - task: set-nginx-conf
+  nginx-down:
+    cmds:
+      - cd web_server && make down
+  set-nginx-conf:
+    cmds:
+      - cd web_server && make set-nginx-conf
+
+  # Preview(buildと配信)
+  preview:
+    cmds:
+      - task -p container-preview react-preview vue-preview nuxt-preview
+  container-preview:
+    cmds:
+      - cmd: cd mfe_container && docker compose exec container make clear-port
+        ignore_error: true
+      - cd mfe_container && docker compose exec container make preview-in-docker
+    prefix: 'container-preview'
+  react-preview:
+    cmds:
+      - cmd: cd mfe_react && docker compose exec react make clear-port
+        ignore_error: true
+      - cd mfe_react && docker compose exec react make preview-in-docker
+    prefix: 'react-preview'
+  vue-preview:
+    cmds:
+      - cmd: cd mfe_vue && docker compose exec vue make clear-port
+        ignore_error: true
+      - cd mfe_vue && docker compose exec vue make preview-in-docker
+    prefix: 'vue-preview'
+  nuxt-preview:
+    cmds:
+      - cmd: cd mfe_nuxt && docker compose exec nuxt make clear-port
+        ignore_error: true
+      - cd mfe_nuxt && docker compose exec nuxt make preview-in-docker
+    prefix: 'nuxt-preview'
+
+  # コマンドの確認
+  default:
+    cmds:
+      - task --list-all
