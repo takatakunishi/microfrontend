@@ -11,7 +11,7 @@ tasks:
       - task -p container-up react-up vue-up nuxt-up nginx-up server-up
   down:
     cmds:
-      - task -p container-down react-down vue-down nuxt-down nginx-down
+      - task -p container-down react-down vue-down nuxt-down nginx-down server-down
 
   # Containerアプリケーション
   container-up:
