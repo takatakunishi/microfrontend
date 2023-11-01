@@ -1,11 +1,27 @@
 import './App.css'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Button from './components/atoms/Butoton'
 import Routing from './router'
 import AppBody from './components/organisms/AppBody'
+import { useEffect } from 'react'
+
+const reactAppNav = (to: any) => {
+  window.dispatchEvent(
+    new CustomEvent('react-app-nav', {
+      detail: {
+        to
+      }
+    }),
+  );
+}
 
 function App() {
   const navigate = useNavigate();
+  const location = useLocation()
+  useEffect(() => {
+    console.log('app', { location })
+    reactAppNav(location.pathname)
+  }, [location])
 
   return (
     <>
