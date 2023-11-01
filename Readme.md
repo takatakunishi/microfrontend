@@ -44,3 +44,4 @@
 ## 動作確認
 
 - Mac (M1 Max) Monterey
+- Mac (M2 Pro) Monterey
