@@ -93,6 +93,13 @@ tasks:
       - cd mfe_nuxt && docker compose exec nuxt make preview-in-docker
     prefix: 'nuxt-preview'
 
+  setup-env:
+    cmds:
+      - task: network-create
+  network-create:
+    cmds:
+      - docker network create mfe_external
+
   # コマンドの確認
   default:
     cmds:

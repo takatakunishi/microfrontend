@@ -19,12 +19,14 @@
 
 ### go-task & makeで動作させる場合
 
+0. [初回のみ] `task setup-env`: 環境設定を行う
 1. `task up`:Docker containerの立ち上げとコードの変更差分をwatchしながらbuildと配信の実行
 2. <http://localhost>にアクセス
 3. `task down`:終了
 
 ### makeコマンドのみで動作させる場合
 
+0. [初回のみ] `make setup-env`: 環境設定を行う
 1. `make up`：Docker containerなどの立ち上げ
 2. 以下ターミナルを分けて実行 (各マイクロフロントエンドアプリのコードの変更差分をwatchしながらbuildと配信の実行)
    1. `make cp` Contiainer（親）アプリケーションの起動
